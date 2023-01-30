@@ -6,5 +6,9 @@ with open('customers.csv', 'r') as inputFile:
     with open("customer_country.csv", "w", newline='') as outputFile:
         outputFile = csv.writer(outputFile)
 
+        next(inputFile)
+
+        outputFile.writerow(["Full Name"] + ["Country"])
+
         for line in inputFile:
-            outputFile.writerow([line[1], line[2], line[4]])
+            outputFile.writerow([line[1] + " " + line[2], line[4]])
